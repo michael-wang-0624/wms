@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.common.persistence.dao.StoregeMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.stylefeng.guns.common.persistence.model.Storege">
+		<id column="id" property="id" />
+		<result column="storege_code" property="storegeCode" />
+		<result column="name" property="name" />
+		<result column="type" property="type" />
+		<result column="warehouse_id" property="warehouseId" />
+		<result column="is_disable" property="isDisable" />
+		<result column="is_defalut" property="isDefalut" />
+		<result column="create_time" property="createTime" />
+		<result column="information" property="information" />
+	</resultMap>
+
+</mapper>

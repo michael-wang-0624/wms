@@ -1,0 +1,62 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="warehouseId" value="${warehouse.warehouseId}">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                     <#input id="warehouseName" name="仓库名称"  value="${warehouse.warehouseName}" underline="true"/>
+                          <!--        <#input id="warehouseType" name="仓库类型" underline="true"/> -->
+                    <!-- <#input id="dept" name="所属部门" underline="true"/> -->
+                    
+                    <#select id="warehouseType" name="仓库类型" underline="true" value="${warehouse.warehouseType}">
+                        <option value="1">成品仓库</option>
+                        <option value="2">原料仓库</option>
+                        <option value="3">半成品仓库</option>
+                    </#select>
+                    
+                    
+                    <#input id="pName" name="所属部门" underline="true" readonly="readonly" hidden="pid" 
+                        hiddenValue="${warehouse.deptId}" value="${deptName}"
+                                clickFun="DeptInfoDlg.showDeptSelectTree(); return false;"
+                                style="background-color: #ffffff !important;"/>
+
+                            
+                            
+                    <#input id="area" name="面积" value="${warehouse.area}" underline="true"/>
+                    <#input id="contactPerson" name="联系人" value="${warehouse.contactPerson}" underline="true"/>
+                </div>
+                 
+
+                <div class="col-sm-6">
+                    <#input id="warehouseCode" name="仓库编号" value="${warehouse.warehouseCode}"  underline="true"/>
+                    <#input id="address" name="地址" underline="true" value="${warehouse.address}" />
+                   
+                    <#input id="rentTime" name="租赁时间" underline="true" type="date"
+                                clickFun="laydate({istime: false, format: 'YYYY-MM-DD'})" value="${warehouse.rentTime}"/>
+                     <#input id="contactPhone" name="电话" underline="true" value="${warehouse.contactPhone}"/>
+
+                </div>
+            </div>
+            
+                  <!-- 父级部门的选择框 -->
+            <div id="parentDeptMenu" class="menuContent"
+                 style="display: none; position: absolute; z-index: 200;">
+                <ul id="parentDeptMenuTree" class="ztree tree-box" style="width: 245px !important;"></ul>
+            </div>
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="WarehouseInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="WarehouseInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/warehouse/warehouse/warehouse_info.js"></script>
+<script src="${ctxPath}/static/modular/system/dept/dept_info.js"></script>
+
+@}
